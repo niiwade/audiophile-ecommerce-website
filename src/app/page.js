@@ -6,7 +6,7 @@ export default function Home() {
   return (
     <>
       {/* Hero Section */}
-      <section className="bg-black text-white relative">
+      <section className="bg-[#141414] text-white relative">
         <div className="container mx-auto px-6 py-0 md:py-0 lg:py-0">
           {/* Mobile version */}
           <div className="md:hidden relative h-[600px] overflow-hidden">
@@ -36,7 +36,7 @@ export default function Home() {
           </div>
           
           {/* Desktop version */}
-          <div className="hidden md:flex h-[632px] relative overflow-hidden">
+          <div className="hidden md:flex h-[632px]  relative overflow-hidden">
             {/* Left content */}
             <div className="w-1/2 flex flex-col justify-center items-start pr-8">
               <p className="text-gray-400 tracking-[0.50em] uppercase text-sm mb-6">N E W  P R O D U C T</p>
