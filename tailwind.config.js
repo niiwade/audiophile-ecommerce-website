@@ -8,7 +8,9 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ["Manrope", "Montserrat", "ui-sans-serif", "system-ui", "sans-serif"],
+        sans: ["var(--font-manrope)", "var(--font-montserrat)", "ui-sans-serif", "system-ui", "sans-serif"],
+        manrope: ["var(--font-manrope)", "ui-sans-serif", "system-ui"],
+        montserrat: ["var(--font-montserrat)", "ui-sans-serif", "system-ui"],
       },
       colors: {
         background: "var(--background)",
