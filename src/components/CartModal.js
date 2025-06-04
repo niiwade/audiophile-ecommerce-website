@@ -10,12 +10,7 @@ import { useCart } from './CartProvider';
 
 export default function CartModal() {
   const { cartItems, isCartOpen, toggleCart, removeFromCart, updateQuantity, clearCart, getCartTotal, closeCart, setIsCartOpen: rawSetIsCartOpen } = useCart();
-  // Note: We are still destructuring setIsCartOpen as rawSetIsCartOpen for the handleClickOutside, 
-  // but the primary closeCart function used for Escape key and focus trap will be from context.
-  // The context's closeCart is already stable. If handleClickOutside needs a stable toggleCart, that's also from context.
-  // For now, let's assume toggleCart is what was intended for handleClickOutside, or use the context's closeCart. 
-  // The original code used toggleCart in handleClickOutside, let's stick to that for now.
-  // The main issue was the local closeCart redefinition causing problems with useEffect dependencies and the TypeError.
+
 
   const modalRef = useRef(null);
   
@@ -90,21 +85,19 @@ export default function CartModal() {
 
 
         
-        <div className="flex justify-between items-center mb-8">
-
-        <div className="flex justify-between items-end mb-6">
-              <span className="text-gray-700 font-bold">CART<span className="text-sm font-semibold text-gray-700">({itemCount} {itemCount === 1 ? 'ITEM' : 'ITEMS'})</span></span>
-              <span className="font-bold text-lg">{formatPrice(getCartTotal())}</span>
-            </div>
-          <h2 className="text-lg font-bold">CART ({itemCount})</h2>
-          {cartItems.length > 0 && (
-            <button 
-              onClick={clearCart}
-              className="text-gray-500 hover:text-orange-500 hover:underline"
-            >
-              Remove all
-            </button>
-          )}
+        <div className="mb-8">
+          <div className="flex justify-between items-center mb-4">
+            <span className="text-gray-700 font-bold">CART ({itemCount} {itemCount === 1 ? 'ITEM' : 'ITEMS'})</span>
+            {cartItems.length > 0 && (
+              <button 
+                onClick={clearCart}
+                className="text-gray-500 hover:text-orange-500 hover:underline"
+              >
+                Remove all
+              </button>
+            )}
+          </div>
+     
         </div>
         
         {cartItems.length === 0 ? (
@@ -143,7 +136,7 @@ export default function CartModal() {
                     >
                       -
                     </button>
-                    <span className="px-3 font-bold text-sm">{item.quantity}</span>
+                    <span className="px-3 font-bold text-sm text-black">{item.quantity}</span>
                     <button 
                       onClick={() => updateQuantity(item.id, item.quantity + 1)}
                       className="px-2 text-gray-500 hover:text-orange-500 font-bold"
@@ -166,7 +159,15 @@ export default function CartModal() {
               ))}
             </ul>
 
-           
+            {/* Total section */}
+            <div className="mt-6 mb-6 space-y-2">
+              
+        
+              <div className="flex justify-between items-center pt-4 mt-2 border-t border-gray-200">
+                <span className="text-gray-500">TOTAL</span>
+                <span className="font-bold text-lg text-orange-500">{formatPrice(cartTotal + 50)}</span>
+              </div>
+            </div>
 
             <Link 
               href="/checkout"
