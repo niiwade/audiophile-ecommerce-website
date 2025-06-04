@@ -1,101 +1,214 @@
 import Image from "next/image";
+import Link from "next/link";
+import CategoryNav from "../components/CategoryNav";
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="https://nextjs.org/icons/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              src/app/page.js
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+    <>
+      {/* Hero Section */}
+      <section className="bg-black text-white relative">
+        <div className="container mx-auto px-6 py-0 md:py-0 lg:py-0">
+          {/* Mobile version */}
+          <div className="md:hidden relative h-[600px] overflow-hidden">
             <Image
-              className="dark:invert"
-              src="https://nextjs.org/icons/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
+              src="/images/hero-mark-ii-headphones.png"
+              alt="XX99 Mark II Headphones"
+              fill
+              className="object-contain z-10"
+              priority
             />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+            <div className="absolute inset-0 bg-black opacity-90 z-0"></div>
+            
+            {/* Content overlay for mobile */}
+            <div className="absolute inset-0 z-20 flex flex-col items-center justify-center text-center px-6 pt-12">
+              <p className="text-gray-400 tracking-[0.50em] uppercase text-sm mb-4">N E W  P R O D U C T</p>
+              <h1 className="text-3xl sm:text-4xl font-bold mb-6 uppercase">XX99 MARK II<br />HEADPHONES</h1>
+              <p className="text-gray-400 mb-8 text-base max-w-xs">
+                Experience natural, lifelike audio and exceptional build quality made for the passionate music enthusiast.
+              </p>
+              <Link 
+                href="/products/xx99-mark-ii-headphones"
+                className="bg-orange-500 text-white px-8 py-3 inline-block hover:bg-orange-600 transition-colors uppercase tracking-wider"
+              >
+                See Product
+              </Link>
+            </div>
+          </div>
+          
+          {/* Desktop version */}
+          <div className="hidden md:flex h-[632px] relative overflow-hidden">
+            {/* Left content */}
+            <div className="w-1/2 flex flex-col justify-center items-start pr-8">
+              <p className="text-gray-400 tracking-[0.50em] uppercase text-sm mb-6">N E W  P R O D U C T</p>
+              <h1 className="text-5xl lg:text-6xl font-bold mb-8 uppercase leading-tight">XX99 MARK II<br />HEADPHONES</h1>
+              <p className="text-gray-400 mb-10 text-base max-w-md">
+                Experience natural, lifelike audio and exceptional build quality made for the passionate music enthusiast.
+              </p>
+              <Link 
+                href="/products/xx99-mark-ii-headphones"
+                className="bg-orange-500 text-white px-8 py-4 inline-block hover:bg-orange-600 transition-colors uppercase tracking-wider"
+              >
+                See Product
+              </Link>
+            </div>
+            
+            {/* Right image */}
+            <div className="w-1/2 relative">
+              <Image
+                src="/images/hero-mark-ii-headphones.png"
+                alt="XX99 Mark II Headphones"
+                fill
+                className="object-contain"
+                priority
+              />
+            </div>
+          </div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+      </section>
+
+      {/* Category Navigation */}
+      <section className="py-16"> 
+        <CategoryNav />
+      </section>
+
+      {/* Featured Products */}
+      <section className="py-16">
+        <div className="container mx-auto px-6">
+          {/* ZX9 Speaker Feature */}
+          <div className="bg-orange-500 text-white rounded-lg overflow-hidden mb-12 relative">
+            {/* Background Pattern - Circles */}
+            <div className="absolute top-0 left-0 w-full h-full pointer-events-none flex items-center justify-center">
+              <Image 
+                src="/images/pattern-circles.svg"
+                alt="Background Pattern"
+                width={1000}
+                height={1000}
+                className="opacity-90"
+                priority
+              />
+            </div>
+            
+            {/* Mobile Layout */}
+            <div className="md:hidden flex flex-col items-center text-center p-10 pb-12 relative z-10">
+              <div className="relative h-52 w-52 mb-8">
+                <Image 
+                  src="/images/zx9-speaker.png"
+                  alt="ZX9 Speaker"
+                  fill
+                  className="object-contain"
+                  priority
+                />
+              </div>
+              <h2 className="text-4xl font-bold mb-6 uppercase">ZX9<br/>SPEAKER</h2>
+              <p className="mb-8 text-sm max-w-xs">
+                Upgrade to premium speakers that are phenomenally built to deliver truly remarkable sound.
+              </p>
+              <Link 
+                href="/products/zx9-speaker"
+                className="bg-black text-white px-8 py-3 inline-block hover:bg-gray-800 transition-colors uppercase tracking-wider"
+              >
+                See Product
+              </Link>
+            </div>
+            
+            {/* Desktop Layout */}
+            <div className="hidden md:grid grid-cols-2 gap-12 items-center p-12 lg:p-24 relative z-10">
+              <div className="relative h-[420px] lg:h-[400px] top-28">
+                <Image 
+                  src="/images/zx9-speaker.png"
+                  alt="ZX9 Speaker"
+                  fill
+                  className="object-contain"
+                  priority
+                />
+              </div>
+              <div className="max-w-md">
+                <h2 className="text-4xl lg:text-5xl font-bold mb-8 uppercase">ZX9<br/>SPEAKER</h2>
+                <p className="mb-10 text-base">
+                  Upgrade to premium speakers that are phenomenally built to deliver truly remarkable sound.
+                </p>
+                <Link 
+                  href="/products/zx9-speaker"
+                  className="bg-black text-white px-8 py-4 inline-block hover:bg-gray-800 transition-colors uppercase tracking-wider"
+                >
+                  See Product
+                </Link>
+              </div>
+            </div>
+          </div>
+
+          {/* ZX7 Speaker Feature */}
+          <div className="rounded-lg mb-12 relative h-80 md:h-96 overflow-hidden">
+            {/* Background Image */}
+            <div className="absolute inset-0 w-full h-full">
+              <Image 
+                src="/images/image-speaker-zx7.jpg"
+                alt="ZX7 Speaker Background"
+                fill
+                className="object-cover"
+                priority
+              />
+            </div>
+            <div className="relative z-10 h-full flex items-center p-8 md:p-16">
+              <div className="max-w-md">
+                <h2 className="text-2xl md:text-3xl font-bold mb-6">ZX7 SPEAKER</h2>
+                <Link 
+                  href="/products/zx7-speaker"
+                  className="border border-black bg-transparent px-8 py-3 inline-block hover:bg-black hover:text-white transition-colors"
+                >
+                  SEE PRODUCT
+                </Link>
+              </div>
+            </div>
+          </div>
+
+          {/* YX1 Earphones Feature */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div className="rounded-lg h-64 md:h-80 relative overflow-hidden">
+              {/* Earphone image container */}
+              <Image 
+                src="/images/image-earphones-yx1.jpg"
+                alt="YX1 Earphones"
+                fill
+                className="object-cover"
+                priority
+              />
+            </div>
+            <div className="bg-gray-100 rounded-lg p-8 md:p-12 flex flex-col justify-center">
+              <h2 className="text-2xl md:text-3xl font-bold mb-6">YX1 EARPHONES</h2>
+              <Link 
+                href="/products/yx1-earphones"
+                className="border border-black px-8 py-3 inline-block w-max hover:bg-black hover:text-white transition-colors"
+              >
+                SEE PRODUCT
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* About Section */}
+      <section className="py-16 md:py-24">
+        <div className="container mx-auto px-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 items-center">
+            <div className="order-2 md:order-1 max-w-xl">
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-8 uppercase leading-tight">Bringing you the <span className="text-orange-500">best</span> audio gear</h2>
+              <p className="text-gray-500 leading-relaxed">
+                Located at the heart of New York City, Audiophile is the premier store for high end headphones, earphones, speakers, and audio accessories. We have a large showroom and luxury demonstration rooms available for you to browse and experience a wide range of our products. Stop by our store to meet some of the fantastic people who make Audiophile the best place to buy your portable audio equipment.
+              </p>
+            </div>
+            <div className="order-1 md:order-2 relative rounded-lg overflow-hidden h-64 md:h-[500px]">
+              <Image 
+                src="/images/image-best-gear.jpg" 
+                alt="Man wearing premium headphones"
+                fill  
+                className="object-cover rounded-lg"
+                priority
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+    </>
   );
 }
